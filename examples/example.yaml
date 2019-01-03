@@ -1,0 +1,40 @@
+schema:
+  type: openfortra
+  version: "1.0"
+personnel:
+  - ssan:
+    first:
+    last:
+    initial:
+    suffix:
+    email:
+    phone:
+      - number:
+        type:
+    travel_documents:
+      - type:
+        origin:
+        id:
+security_organization:
+  government_organization:
+  contractor:
+  office:
+  geo_code:
+  personnel_security:
+    - last:
+      first:
+      email:
+      type:
+      phone:
+        - number:
+          type:
+classification:
+  level:
+  classifier:
+    - last:
+      first:
+  declassifier:
+    - last:
+      first:
+  justification:
+  derived:
