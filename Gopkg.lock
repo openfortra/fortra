@@ -8,16 +8,6 @@
   version = "v1.0"
 
 [[projects]]
-  branch = "master"
-  name = "github.com/openfortra/fortra"
-  packages = [
-    "pkg/cli/fortra",
-    "pkg/cli/version",
-    "version"
-  ]
-  revision = "b336f21cb482773d694d25d5dab98b465fe265df"
-
-[[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
   revision = "ef82de70bb3f60c65fb8eebacbb2d122ef517385"
@@ -29,9 +19,15 @@
   revision = "298182f68c66c05229eb03ac171abe6e309ee79a"
   version = "v1.0.3"
 
+[[projects]]
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1805e5a2141eb69c716b6f87bb8e2d64d17058f67c28a8a835c069465e5f3d7b"
+  inputs-digest = "f2864d29dcc904df9f75f7e1e6fab92ec475e813662ab1e24e5fd6260fbc8a71"
   solver-name = "gps-cdcl"
   solver-version = 1
