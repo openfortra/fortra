@@ -22,3 +22,4 @@ Additional help topics:{{range .Commands}}{{if .IsAdditionalHelpTopicCommand}}
 See "{{.CommandPath}} help <TOPIC>" for more information on a specific topic.
 See "{{.CommandPath}} <COMMAND> --help" for more information about a command.
 {{end}}
+`

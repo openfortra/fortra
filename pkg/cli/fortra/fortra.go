@@ -18,7 +18,7 @@ import (
 
 // Run the Fortra Command structure
 func Run() error {
-	cmd := FortraMainCommand(os.Stdin, os.Stdout, os.Stderr)
+	cmd := MainCommand(os.Stdin, os.Stdout, os.Stderr)
 	return cmd.Execute()
 }
 
@@ -32,9 +32,9 @@ func init() {
 	log.SetOutput(ioutil.Discard)
 }
 
-// FortraMainCommand Main Fortra command cli
+// MainCommand Main Fortra command cli
 // Add new commands/subcommands for new verbs in this function
-func FortraMainCommand(in io.Reader, out, err io.Writer) *cobra.Command {
+func MainCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 	cmds := &cobra.Command{
 		Use:   "fortra",
 		Short: "OpenFortra CLI Tool",
