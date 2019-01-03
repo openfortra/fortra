@@ -5,13 +5,15 @@
 package fortra
 
 import (
-	"os"
-	"io"
-	"io/ioutil"
-	"log"
+	"github.com/openfortra/fortra/internal/clierrors"
+	"github.com/openfortra/fortra/pkg/cli/initialize"
 	cliversion "github.com/openfortra/fortra/pkg/cli/version"
 	"github.com/openfortra/fortra/version"
 	"github.com/spf13/cobra"
+	"io"
+	"io/ioutil"
+	"log"
+	"os"
 )
 
 // Run the Fortra Command structure
@@ -19,7 +21,6 @@ func Run() error {
 	cmd := FortraMainCommand(os.Stdin, os.Stdout, os.Stderr)
 	return cmd.Execute()
 }
-
 
 // Verbose boolean for turning on/off verbosity
 var Verbose bool
@@ -57,10 +58,7 @@ reporting requirements per the organizational security policy`,
 	cmds.PersistentFlags().BoolVarP(&Version, "version", "v", false, "Print the version")
 
 	// Add new main commands here
-	cmds.AddCommand(diff.NewCmdDiff(out))
-	cmds.AddCommand(docs.NewCmdDocs(out))
-	cmds.AddCommand(export.NewCmdExport(out))
-	cmds.AddCommand(get.NewCmdGet(out))
+	cmds.AddCommand(initialize.FortraCmdInit(out))
 	cmds.AddCommand(cliversion.FortraCmdVersion(out))
 
 	disableFlagsInUseLine(cmds)

@@ -70,4 +70,3 @@ func (ee *ExitError) ExitCode() int {
 }
 
 // End code taken from https://github.com/urfave/cli/blob/master/errors.go
-
