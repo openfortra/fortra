@@ -16,7 +16,7 @@ import (
 
 // Run the Fortra Command structure
 func Run() error {
-	cmd := NewFortraCommand(os.Stdin, os.Stdout, os.Stderr)
+	cmd := FortraMainCommand(os.Stdin, os.Stdout, os.Stderr)
 	return cmd.Execute()
 }
 
@@ -31,9 +31,9 @@ func init() {
 	log.SetOutput(ioutil.Discard)
 }
 
-// NewFortraCommand Main Fortra command cli
+// FortraMainCommand Main Fortra command cli
 // Add new commands/subcommands for new verbs in this function
-func NewFortraCommand(in io.Reader, out, err io.Writer) *cobra.Command {
+func FortraMainCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 	cmds := &cobra.Command{
 		Use:   "fortra",
 		Short: "OpenFortra CLI Tool",
@@ -61,7 +61,7 @@ reporting requirements per the organizational security policy`,
 	cmds.AddCommand(docs.NewCmdDocs(out))
 	cmds.AddCommand(export.NewCmdExport(out))
 	cmds.AddCommand(get.NewCmdGet(out))
-	cmds.AddCommand(cliversion.NewCmdVersion(out))
+	cmds.AddCommand(cliversion.FortraCmdVersion(out))
 
 	disableFlagsInUseLine(cmds)
 
