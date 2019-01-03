@@ -10,6 +10,7 @@ import (
 	"io/ioutil"
 	"log"
 	cliversion "github.com/openfortra/fortra/pkg/cli/version"
+	"github.com/openfortra/fortra/internal/clierrors"
 	"github.com/openfortra/fortra/version"
 	"github.com/spf13/cobra"
 )
@@ -37,9 +38,9 @@ func FortraMainCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 	cmds := &cobra.Command{
 		Use:   "fortra",
 		Short: "OpenFortra CLI Tool",
-		Long: `OpenFortra is a command-line interface (CLI) that
-allows users to construct foreign travel documentation to meet foreign travel
-reporting requirements per the organizational security policy`,
+		Long: `OpenFortra is a command-line interface (CLI) that allows users to construct
+foreign travel documentation to meet foreign travel reporting requirements per
+the organizational security policy.`,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			err := RunGlobalFlags(out, cmd)
 			clierrors.CheckError(err)
@@ -57,10 +58,6 @@ reporting requirements per the organizational security policy`,
 	cmds.PersistentFlags().BoolVarP(&Version, "version", "v", false, "Print the version")
 
 	// Add new main commands here
-	cmds.AddCommand(diff.NewCmdDiff(out))
-	cmds.AddCommand(docs.NewCmdDocs(out))
-	cmds.AddCommand(export.NewCmdExport(out))
-	cmds.AddCommand(get.NewCmdGet(out))
 	cmds.AddCommand(cliversion.FortraCmdVersion(out))
 
 	disableFlagsInUseLine(cmds)
