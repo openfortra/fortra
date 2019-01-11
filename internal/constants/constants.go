@@ -7,3 +7,6 @@ const (
 	DefaultUserDirLinux   = ".fortra"
 	DefaultUserConfigFile = "config.yaml"
 )
+
+var PhoneTypeList = []string {"cell", "office", "open", "secure"}
+var TravelTypeList = []string {"passport", "'passport card'", "visa"}
